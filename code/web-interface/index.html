@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis Framework Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .step-active {
+            @apply border-blue-500 bg-blue-500 text-white;
+        }
+        .step-completed {
+            @apply border-green-500 bg-green-500 text-white;
+        }
+        .step-inactive {
+            @apply border-gray-300 bg-white text-gray-400;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div id="app" class="max-w-4xl mx-auto p-6">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <!-- Header -->
+            <div class="gradient-bg text-white p-6">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="book-open" class="w-8 h-8"></i>
+                    <div>
+                        <h1 class="text-2xl font-bold">Thesis Writing Framework Assistant</h1>
+                        <p class="text-blue-100">Your AI-powered companion for academic success</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="px-6 py-4 bg-gray-50 border-b">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <div class="step-active flex items-center justify-center w-10 h-10 rounded-full border-2">
+                            <i data-lucide="target" class="w-5 h-5"></i>
+                        </div>
+                        <span class="ml-2 text-sm font-medium text-blue-600">Define Research Focus</span>
+                        <div class="w-8 h-px mx-4 bg-gray-300"></div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="step-inactive flex items-center justify-center w-10 h-10 rounded-full border-2">
+                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                        </div>
+                        <span class="ml-2 text-sm font-medium text-gray-400">Problem & Objectives</span>
+                        <div class="w-8 h-px mx-4 bg-gray-300"></div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="step-inactive flex items-center justify-center w-10 h-10 rounded-full border-2">
+                            <i data-lucide="file-text" class="w-5 h-5"></i>
+                        </div>
+                        <span class="ml-2 text-sm font-medium text-gray-400">Methodology & Timeline</span>
+                        <div class="w-8 h-px mx-4 bg-gray-300"></div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="step-inactive flex items-center justify-center w-10 h-10 rounded-full border-2">
+                            <i data-lucide="check-circle" class="w-5 h-5"></i>
+                        </div>
+                        <span class="ml-2 text-sm font-medium text-gray-400">Framework Summary</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div id="content" class="p-6">
+                <!-- Step content will be dynamically loaded here -->
+            </div>
+
+            <!-- Navigation -->
+            <div class="flex justify-between p-6 bg-gray-50 border-t">
+                <button id="prevBtn" class="px-6 py-2 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                    Previous
+                </button>
+                <button id="nextBtn" class="px-6 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    Next Step
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/thesis-framework.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
